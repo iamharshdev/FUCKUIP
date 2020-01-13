@@ -16,6 +16,5 @@ chmod +x fuckuip.sh
 Download as zip & extract it and navigate into folder using cmd
 type
 ```
-pip3 install ipinfo
-python3 fuckuip.py
+python fuckuip.py
 ```

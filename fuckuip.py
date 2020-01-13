@@ -1,20 +1,8 @@
-def install_and_import(package):
-    import importlib
-    try:
-        importlib.import_module(package)
-    except ImportError:
-        import pip
-        pip.main(['install', package])
-    finally:
-        globals()[package] = importlib.import_module(package)
-        
-install_and_import('ipinfo')
-import pprint
-access_token = '4c80130a1318d7'
-handler = ipinfo.getHandler(access_token)
-ip_address = input("Enter any IP Address")
-details = handler.getDetails(ip_address)
-pprint.pprint(details.all)
+import urllib.request,json
+ip=input("Enter Any IP")
+fuckip=urllib.request.urlopen("http://www.ip-api.com/json/"+ip+"?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query").read()
+parsed = json.loads(fuckip)
+print(json.dumps(parsed, indent=4, sort_keys=True))
 print("\n")
 print("Thanks for using FUCKUIP :)")
 print("Coded by")
